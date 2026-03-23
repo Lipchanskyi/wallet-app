@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wallet App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="app">
+
+<section id="currency-screen" class="screen hidden">
+
+    <section id="greet">
+
+    <h1>Greetings!</h1>
+
+    </section>
+  
+  <h3>You will not be able to change currency in the future</h3>
+
+    <section id="currency-card">
+
+    <h2>Choose currency:</h2>
+
+      <div class="btns">
+
+      <button class="currency-btn" data-currency="EUR">EUR</button>
+      <button class="currency-btn" data-currency="USD">USD</button>
+      <button class="currency-btn" data-currency="UAH">UAH</button>
+      <button class="currency-btn" data-currency="GBP">GBP</button>
+      <button class="currency-btn" data-currency="CAD">CAD</button>
+
+      </div>
+
+    </section>
+
+</section>
+
+  <section id="setup-screen" class="screen hidden">
+
+  <h1>Create your wallet:</h1>
+
+  <h3>Set your username and password to get started</h3>
+
+  <div id="input-card">
+
+  <div class="inputs">
+
+  <input id="username-input" placeholder="Username">
+  <input id="password-input" type="password" placeholder="Password">
+
+  </div>
+
+  <div class="btns">
+
+  <button id="create-wallet-btn">Create wallet</button>
+
+  </div>
+
+</div>
+
+</section>
+
+  <section id="auth-screen" class="screen hidden">
+
+  <h1>Greetings!</h1>
+
+  <div id="login-card">
+
+  <h2>Login:</h2>
+
+  <div class="inputs">
+
+  <input id="username" placeholder="Username">
+
+  <input id="password" type="password" placeholder="Password">
+
+  </div>
+
+  <div class="btns">
+
+  <button id="login-btn">Login</button>
+
+  </div>
+
+  </div>
+  
+  <button id="newuser-btn">New user?</button>
+
+</section>
+
+<section id="newuser-screen" class="screen hidden">
+
+  <h2>Create new wallet</h2>
+
+  <input id="new-username" placeholder="Username">
+
+  <input id="new-password" type="password" placeholder="Password">
+
+  <button id="createuser-btn">Create</button>
+
+  </section>
+
+    <section id="wallet-screen" class="screen hidden">
+
+    <div id="logout-card">
+
+    <button data-action="logout-btn">Log Out</button>
+
+    </div>
+    
+  <div class="wallet-card">
+
+  <div class="bottom-row">  
+    
+    <span id="card-user"></span>
+
+  <div class="card-balance">
+      <span id="balance-amount"></span>
+      <span id="balance-currency"></span>
+  </div>
+
+  </div>
+
+</div>
+
+<ul id="transactions" placeholder="No transactions yet"></ul>
+
+
+<section class="actions">
+
+  <button data-action="deposit-btn">Deposit</button>
+
+  <button data-action="withdraw-btn">Withdraw</button>
+
+  <button data-action="transfer-btn">Transfer</button>
+
+  <button data-action="piggybank-btn">Piggy Bank</button>
+
+  </section>
+
+</section>
+
+    <section id="piggy-screen" class="screen hidden">
+
+    <h2>Piggy Bank</h2>
+
+    <div id="piggy-balance"></div>
+
+    <button id="put-piggy-btn">Put</button>
+
+    <button data-action="back-to-wallet-btn">Take</button>
+
+  </section>
+
+  <div id="modal" class="screen hidden">
+
+    <div class="modal-overlay"></div>
+
+      <div class="modal-window">
+
+      <h2 id="modal-title"></h2>
+
+      <div id="modal-user-group">
+      <input id="modal-user" placeholder="Username">
+      </div>
+
+      <div id="modal-category-group">
+      <select id="modal-category">
+      <option>Market</option>
+      <option>Restaurants</option>
+      <option>Beauty & care</option>
+      <option>Pet Supply</option>
+      <option>Electronics</option>
+      <option>Toys & Kids</option>
+      <option>Shopping</option>
+      <option>Travelling</option>
+      <option>Entertainment</option>
+      <option>Other</option>
+        </select>
+      </div>
+        
+      <input id="modal-amount" type="number" placeholder="Amount">
+
+      <div class="modal-actions">
+        <button id="modal-confirm">Confirm</button>
+        <button id="modal-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <script type="module" src="./index.js"></script>
+</body>
+</html>
