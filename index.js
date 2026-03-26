@@ -120,9 +120,17 @@ function wallet () {
   showScreen(UI.screens.walletScreen)  
 };
 
+const MODAL_TITLES = {
+  deposit: 'Deposit',
+  withdraw: 'Withdraw',
+  transfer: 'Transfer',
+  piggyPut: 'Put to Piggy Bank',
+  piggyTake: 'Take from Piggy Bank',
+};
+
 function openTransactionModal(type) {
   modalAction = type
-  UI.modals.title.textContent = type
+  UI.modals.title.textContent = MODAL_TITLES[type] || 'Transaction';
   UI.modals.userGroup.classList.add("hidden")
   UI.modals.categoryGroup.classList.add("hidden")
   if (type === "transfer") {

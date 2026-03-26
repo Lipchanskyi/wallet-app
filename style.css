@@ -30,23 +30,22 @@ body {
   line-height: 1.5;
   background: #181818;
   color: white;
+  overflow: hidden;
 }
 
 #app {
+  position: relative;
   max-width: 1000px;
   margin: 0 auto;
   padding: 10px;
 }
 
 .screen {
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
   opacity: 1;
-  transform: translateY(0);
-  transition: all 0.4s ease;
 }
 
 .hidden {
@@ -54,6 +53,7 @@ body {
   inset: 0;
   opacity: 0;
   transform: translateY(20px);
+  transition: all 0.4s ease;
   pointer-events: none;
 }
 
@@ -86,7 +86,6 @@ section {
 }
 
 #currency-screen {
-  overflow: hidden;
   flex-direction: column;
   justify-content: start;
   align-items: center;
@@ -149,7 +148,6 @@ section {
 }
 
 #setup-screen {
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -215,7 +213,6 @@ section {
 }
 
 #auth-screen {
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -297,14 +294,46 @@ section {
   box-shadow: 0;
 }
 
+#newuser-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  margin-top: 50px;
+  gap: 20px;
+}
+
+#newuser-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 110px;
+  border-radius: 8px;
+  background-color: #fafafa;
+  color: black;
+  box-shadow: 0 2px 3px 0 #999999;
+  gap: 25px;
+}
+
+#createuser-btn {
+  background: transparent;
+  font-family: "Barlow", sans-serif;
+  font-weight: 500;
+  transition: all 0.1s ease;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  padding: 20px 50px;
+  transition: 0.2s;
+}
+
 #wallet-screen {
   display: flex;
-  overflow: hidden;
   flex-direction: column;
   justify-content: start;
   font-family: "Barlow", sans-serif;
   font-weight: 500;
   gap: 10px;
+  padding-bottom: 100px;
 }
 
 #logout-card {
@@ -375,11 +404,15 @@ section {
 }
 
 #wallet-screen .actions {
+  position: fixed;
+  bottom: 0;
+  left: 200px;
+  width: 70%;
   display: flex;
   justify-content: end;
   margin-top: auto;
   background-color: #fafafa;
-  gap: 100px;
+  gap: 120px;
   border-radius: 8px;
   padding: 3px 140px;
 }
@@ -486,21 +519,17 @@ section {
 
 #transactions {
   display: grid;
-  flex: 1;
-  overflow-y: auto;
-  grid-auto-flow: row;
+  bottom: 0;
   max-width: 100%;
   padding-right: 40px;
-  grid-template-columns: 1fr, auto;
   gap: 10px;
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 120px;
 }
 
 
-#transactions {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+
 
 .transaction {
   display: grid;
@@ -568,4 +597,160 @@ section {
 
   box-shadow:
     0 0 6px #e74c3c;
+}
+
+#modal {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0; 
+
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-window {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  gap: 20px;
+  min-width: 400px;
+}
+
+.modal-window h2 {
+  color: #181818;
+}
+
+#modal-user-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  margin-top: auto;
+  background-color: #fafafa;
+  border-radius: 8px;
+}
+
+#modal-confirm {
+  background: transparent;
+  font-family: "Barlow", sans-serif;
+  font-weight: 500;
+  transition: all 0.1s ease;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  padding: 5px;
+  transition: 0.2s;
+}
+
+#modal-confirm:hover {
+transform: scale(1.03);
+  background-color: #353535;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+#modal-cancel {
+  background: transparent;
+  font-family: "Barlow", sans-serif;
+  font-weight: 500;
+  transition: all 0.1s ease;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  padding: 5px;
+  transition: 0.2s;
+}
+
+#modal-cancel:hover {
+transform: scale(1.03);
+  background-color: #353535;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+#piggy-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 20px;
+  background-color: #000000;
+}
+
+#piggy-screen h2 {
+  font-size: 40px;
+}
+
+.piggy-img {
+  width: 400px; 
+  display: block;
+  margin: 0 auto;
+}
+
+#piggy-balance-box {
+  position: fixed;
+  bottom: 120px;
+}
+
+#piggy-balance {
+  font-size: 20px;
+}
+
+#piggy-screen .actions {
+  margin-top: auto;
+  padding-bottom: 60px;
+}
+
+#put-piggy-btn {
+  background-color: white;
+  font-family: "Barlow", sans-serif;
+  font-weight: 500;
+  transition: all 0.1s ease;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  padding: 10px 20px;
+  transition: 0.2s;
+}
+
+#put-piggy-btn:hover {
+  transform: scale(1.03);
+  background-color: #353535;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+[data-action=back-to-wallet-btn] {
+  background-color: white;
+  font-family: "Barlow", sans-serif;
+  font-weight: 500;
+  transition: all 0.1s ease;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  padding: 10px 20px;
+  transition: 0.2s;
+}
+
+[data-action=back-to-wallet-btn]:hover {
+  transform: scale(1.03);
+  background-color: #353535;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
